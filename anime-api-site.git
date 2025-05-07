@@ -1,0 +1,11 @@
+# Ignore node_modules or build if someday added
+node_modules/
+build/
+dist/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Vercel local
+.vercel/
