@@ -1,26 +1,29 @@
 // Fungsi untuk memuat quotes berdasarkan kategori
-async function loadQuotes(anime = "https://anime-api-site.vercel.app") {
-  const res = await fetch("/api/quotes");
-  const data = await res.json();
-  const output = document.getElementById("output");
-  output.innerHTML = "";
+async function loadQuotes(anime) {
+  const apiUrl = `https://anime-api-site.vercel.app/api/quotes/${anime}`;
+  
+  // Tampilkan URL di elemen khusus
+  document.getElementById('apiUrlText').innerText = apiUrl;
 
-  // Jika kategori anime dipilih, filter berdasarkan anime tersebut
-  const filteredData = anime
-    ? data.filter(item => item.anime.toLowerCase() === anime.toLowerCase())
-    : data;
-
-  // Menampilkan data yang sudah difilter
-  filteredData.forEach((item) => {
-    const quoteBlock = document.createElement("div");
-    quoteBlock.className = "item";
-    quoteBlock.innerHTML = `
-      <p>"${item.quote}"</p>
-      <p><strong>${item.character}</strong> - <em>${item.anime}</em></p>
-    `;
-    output.appendChild(quoteBlock);
-  });
+  // Tampilkan hasil quote
+  fetch(apiUrl)
+    .then(res => res.json())
+    .then(data => {
+      const output = document.getElementById('output');
+      output.innerHTML = '';
+      data.forEach(q => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
+          <p><strong>${q.character}</strong></p>
+          <p>"${q.quote}"</p>
+          <p><em>${q.anime}</em></p>
+        `;
+        output.appendChild(div);
+      });
+    });
 }
+
 
 // Fungsi untuk memuat sticker berdasarkan kategori
 async function loadStickers(anime = "") {
