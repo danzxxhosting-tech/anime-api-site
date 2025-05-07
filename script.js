@@ -68,7 +68,7 @@ async function loadImages(anime = "") {
 }
 
 // Fungsi untuk menampilkan URL API
-function showApiUrl(apiType, anime = "") {
+function showApiUrl(apiType, anime = "https://anime-api-site.vercel.app/") {
   let apiUrl = "https://anime-api-site.vercel.app/";
 
   switch(apiType) {
