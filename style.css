@@ -49,6 +49,19 @@ h1 {
   box-shadow: 0 6px 18px rgba(78, 84, 200, 0.5);
 }
 
+/* Tombol View API */
+.view-api-btn {
+  background: #fff;
+  color: #4e54c8;
+  border: 2px solid #4e54c8;
+}
+
+.view-api-btn:hover {
+  background: #4e54c8;
+  color: #fff;
+  transform: scale(1.03);
+}
+
 #apiUrlText {
   margin-top: 10px;
   font-size: 14px;
