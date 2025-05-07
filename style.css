@@ -11,21 +11,32 @@ h1 {
   color: #333;
 }
 
-button {
-  margin: 10px;
-  padding: 12px 20px;
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-button:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
+button.feature-btn {
+  width: 250px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #4CAF50, #66bb6a);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button.feature-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, #43a047, #81c784);
 }
 
 #apiUrlText {
