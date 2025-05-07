@@ -1,56 +1,37 @@
-document.getElementById('quoteButton').addEventListener('click', getAnimeQuote);
-document.getElementById('stickerButton').addEventListener('click', getAnimeSticker);
+async function loadQuotes() {
+  const res = await fetch("quotes.json");
+  const data = await res.json();
+  const output = document.getElementById("output");
+  output.innerHTML = "";
+  data.forEach((item, i) => {
+    const quoteBlock = document.createElement("div");
+    quoteBlock.className = "item";
+    quoteBlock.innerHTML = `
+      <p>"${item.quote}"<br><span>- ${item.anime}</span></p>
+      <button onclick="copyToClipboard('${window.location.origin}/quotes.json#${i}')">📋 Copy API URL</button>
+    `;
+    output.appendChild(quoteBlock);
+  });
+}
+
+async function loadStickers() {
+  const res = await fetch("stickers.json");
+  const data = await res.json();
+  const output = document.getElementById("output");
+  output.innerHTML = "";
+  data.forEach((url, i) => {
+    const stickerBlock = document.createElement("div");
+    stickerBlock.className = "item";
+    stickerBlock.innerHTML = `
+      <img src="${url}" alt="sticker" class="sticker-img"/>
+      <button onclick="copyToClipboard('${url}')">📋 Copy URL</button>
+    `;
+    output.appendChild(stickerBlock);
+  });
+}
 
 function copyToClipboard(text) {
-  const textarea = document.createElement('textarea');
-  textarea.value = text;
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textarea);
-}
-
-async function getAnimeQuote() {
-  const response = await fetch('./quotes.json');
-  const data = await response.json();
-  const random = data[Math.floor(Math.random() * data.length)];
-  const quoteUrl = location.origin + '/quotes.json';
-
-  document.getElementById('quoteText').innerText = random.text;
-  document.getElementById('characterName').innerText = random.character;
-  document.getElementById('animeName').innerText = random.anime;
-
-  const quoteUrlButton = document.getElementById('quoteUrlButton');
-  const copyQuoteUrlButton = document.getElementById('copyQuoteUrlButton');
-  quoteUrlButton.style.display = 'inline-block';
-  copyQuoteUrlButton.style.display = 'inline-block';
-
-  quoteUrlButton.onclick = () => window.open(quoteUrl, '_blank');
-  copyQuoteUrlButton.onclick = () => {
-    copyToClipboard(quoteUrl);
-    alert('Quote URL copied to clipboard!');
-  };
-}
-
-async function getAnimeSticker() {
-  const response = await fetch('./stickers.json');
-  const data = await response.json();
-  const random = data[Math.floor(Math.random() * data.length)];
-  const stickerUrl = location.origin + '/stickers.json';
-
-  document.getElementById('stickerImage').src = random.url;
-  document.getElementById('stickerImage').style.display = 'block';
-  document.getElementById('stickerCharacterName').innerText = random.character;
-  document.getElementById('stickerAnimeName').innerText = random.anime;
-
-  const stickerUrlButton = document.getElementById('stickerUrlButton');
-  const copyStickerUrlButton = document.getElementById('copyStickerUrlButton');
-  stickerUrlButton.style.display = 'inline-block';
-  copyStickerUrlButton.style.display = 'inline-block';
-
-  stickerUrlButton.onclick = () => window.open(stickerUrl, '_blank');
-  copyStickerUrlButton.onclick = () => {
-    copyToClipboard(stickerUrl);
-    alert('Sticker URL copied to clipboard!');
-  };
+  navigator.clipboard.writeText(text)
+    .then(() => alert("URL copied!"))
+    .catch(err => console.error("Copy failed", err));
 }
