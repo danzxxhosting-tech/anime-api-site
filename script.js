@@ -10,7 +10,7 @@ async function loadQuotes() {
     quoteBlock.innerHTML = `
       <p>"${item.quote}"</p>
       <p><strong>${item.character}</strong> - <em>${item.anime}</em></p>
-      <button onclick="copyToClipboard('${window.location.origin}/quotes.json#${i}')">📋 Copy API URL</button>
+      <button onclick="window.location.href='https://anime-api-site.vercel.app/api/quotes'">🌐 View API URL</button>
     `;
     output.appendChild(quoteBlock);
   });
@@ -27,12 +27,11 @@ async function loadAnimeImages() {
     imageBlock.className = "item";
     imageBlock.innerHTML = `
       <img src="${url}" alt="anime image" class="sticker-img"/>
-      <button onclick="copyToClipboard('${url}')">📋 Copy URL</button>
+      <button onclick="window.location.href='https://anime-api-site.vercel.app/api/images'">🌐 View API URL</button>
     `;
     output.appendChild(imageBlock);
   });
 }
-
 
 async function loadStickers() {
   const res = await fetch("stickers.json");
@@ -46,14 +45,8 @@ async function loadStickers() {
     stickerBlock.innerHTML = `
       <img src="${item.url}" alt="sticker" class="sticker-img"/>
       <p><strong>${item.character}</strong> - <em>${item.anime}</em></p>
-      <button onclick="copyToClipboard('${item.url}')">📋 Copy URL</button>
+      <button onclick="window.location.href='https://anime-api-site.vercel.app/api/stickers'">🌐 View API URL</button>
     `;
     output.appendChild(stickerBlock);
   });
-}
-
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text)
-    .then(() => alert("URL copied!"))
-    .catch(err => console.error("Copy failed", err));
 }
