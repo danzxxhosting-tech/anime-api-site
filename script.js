@@ -14,6 +14,24 @@ async function loadQuotes() {
   });
 }
 
+async function loadAnimeImages() {
+  const res = await fetch("images.json");
+  const data = await res.json();
+  const output = document.getElementById("output");
+  output.innerHTML = "";
+
+  data.forEach((url, i) => {
+    const imageBlock = document.createElement("div");
+    imageBlock.className = "item";
+    imageBlock.innerHTML = `
+      <img src="${url}" alt="anime image" class="sticker-img"/>
+      <button onclick="copyToClipboard('${url}')">📋 Copy URL</button>
+    `;
+    output.appendChild(imageBlock);
+  });
+}
+
+
 async function loadStickers() {
   const res = await fetch("stickers.json");
   const data = await res.json();
