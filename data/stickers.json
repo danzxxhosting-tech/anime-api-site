@@ -1,13 +1,26 @@
-
 [
   {
-    "url": "https://example.com/sticker1.png",
-    "character": "Naruto",
-    "anime": "Naruto"
+    "name": "Naruto Smiling",
+    "url": "https://anime-api-site.vercel.app/assets/stickers/naruto_smile.png"
   },
   {
-    "url": "https://example.com/sticker2.png",
-    "character": "Sakura",
-    "anime": "Naruto"
+    "name": "Luffy Thumbs Up",
+    "url": "https://anime-api-site.vercel.app/assets/stickers/luffy_thumbs.png"
+  },
+  {
+    "name": "Zoro Angry",
+    "url": "https://anime-api-site.vercel.app/assets/stickers/zoro_angry.png"
+  },
+  {
+    "name": "Eren Rage",
+    "url": "https://anime-api-site.vercel.app/assets/stickers/eren_rage.png"
+  },
+  {
+    "name": "Tanjiro Confused",
+    "url": "https://anime-api-site.vercel.app/assets/stickers/tanjiro_confused.png"
+  },
+  {
+    "name": "Sasuke Cool",
+    "url": "https://anime-api-site.vercel.app/assets/stickers/sasuke_cool.png"
   }
 ]
