@@ -1,124 +1,78 @@
-// Fungsi untuk memuat quotes berdasarkan kategori
-async function loadQuotes(anime) {
-  const apiUrl = `https://anime-api-site.vercel.app/api/quotes/${anime}`;
-  
-  // Tampilkan URL di elemen khusus
-  document.getElementById('apiUrlText').innerText = apiUrl;
+const output = document.getElementById('output');
+const apiUrlText = document.getElementById('apiUrlText');
 
-  // Tampilkan hasil quote
-  fetch(apiUrl)
+function showApiUrl(url) {
+  apiUrlText.textContent = url;
+  apiUrlText.style.color = '#4CAF50';
+  apiUrlText.style.fontWeight = 'bold';
+}
+
+function clearOutput() {
+  output.innerHTML = '';
+}
+
+function loadQuotes(anime) {
+  const url = `https://anime-api-site.vercel.app/api/quotes/${anime}`;
+  showApiUrl(window.location.origin + url);
+  fetch(url)
     .then(res => res.json())
     .then(data => {
-      const output = document.getElementById('output');
-      output.innerHTML = '';
-      data.forEach(q => {
+      clearOutput();
+      data.forEach(quote => {
         const div = document.createElement('div');
-        div.className = 'item';
+        div.className = 'quote-box';
         div.innerHTML = `
-          <p><strong>${q.character}</strong></p>
-          <p>"${q.quote}"</p>
-          <p><em>${q.anime}</em></p>
+          <p><strong>${quote.character}</strong> (${quote.anime})</p>
+          <p>"${quote.quote}"</p>
         `;
         output.appendChild(div);
       });
+    })
+    .catch(err => {
+      output.innerHTML = `<p class="error">Gagal memuat quotes: ${err.message}</p>`;
     });
 }
 
-
-// Fungsi untuk memuat sticker berdasarkan kategori
-async function loadStickers(anime = "") {
-  const res = await fetch("/api/stickers");
-  const data = await res.json();
-  const output = document.getElementById("output");
-  output.innerHTML = "";
-
-  // Jika kategori anime dipilih, filter berdasarkan anime tersebut
-  const filteredData = anime
-    ? data.filter(item => item.anime.toLowerCase() === anime.toLowerCase())
-    : data;
-
-  // Menampilkan data yang sudah difilter
-  filteredData.forEach((item) => {
-    const stickerBlock = document.createElement("div");
-    stickerBlock.className = "item";
-    stickerBlock.innerHTML = `
-      <img src="${item.url}" alt="sticker" class="sticker-img"/>
-      <p><strong>${item.character}</strong> - <em>${item.anime}</em></p>
-    `;
-    output.appendChild(stickerBlock);
-  });
+function loadStickers() {
+  const url = `https://anime-api-site.vercel.app/api/stickers`;
+  showApiUrl(window.location.origin + url);
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      clearOutput();
+      data.forEach(sticker => {
+        const div = document.createElement('div');
+        div.className = 'sticker-box';
+        div.innerHTML = `
+          <p><strong>${sticker.name}</strong></p>
+          <img src="${sticker.url}" alt="${sticker.name}" class="sticker-img"/>
+        `;
+        output.appendChild(div);
+      });
+    })
+    .catch(err => {
+      output.innerHTML = `<p class="error">Gagal memuat stiker: ${err.message}</p>`;
+    });
 }
 
-// Fungsi untuk memuat gambar berdasarkan kategori anime
-async function loadImages(anime = "") {
-  const res = await fetch("/api/images");
-  const data = await res.json();
-  const output = document.getElementById("output");
-  output.innerHTML = "";
-
-  // Jika kategori anime dipilih, filter berdasarkan anime tersebut
-  const filteredData = anime
-    ? data.filter(item => item.includes(anime.toLowerCase()))
-    : data;
-
-  // Menampilkan gambar yang sudah difilter
-  filteredData.forEach((image) => {
-    const imgBlock = document.createElement("div");
-    imgBlock.className = "item";
-    imgBlock.innerHTML = `<img src="${image}" alt="image" class="img-item" />`;
-    output.appendChild(imgBlock);
-  });
+function loadImages() {
+  const url = `https://anime-api-site.vercel.app/api/images`;
+  showApiUrl(window.location.origin + url);
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      clearOutput();
+      data.forEach(image => {
+        const div = document.createElement('div');
+        div.className = 'image-box';
+        div.innerHTML = `
+          <p><strong>${image.title}</strong></p>
+          <img src="${image.url}" alt="${image.title}" class="anime-img"/>
+        `;
+        output.appendChild(div);
+      });
+    })
+    .catch(err => {
+      output.innerHTML = `<p class="error">Gagal memuat gambar: ${err.message}</p>`;
+    });
 }
-
-// Fungsi untuk menampilkan URL API
-function showApiUrl(apiType, anime = "https://anime-api-site.vercel.app/") {
-  let apiUrl = "https://anime-api-site.vercel.app/";
-
-  switch(apiType) {
-    case 'quotes':
-      apiUrl = `/api/quotes${anime ? `?anime=${anime}` : ''}`;
-      break;
-    case 'stickers':
-      apiUrl = `/api/stickers${anime ? `?anime=${anime}` : ''}`;
-      break;
-    case 'images':
-      apiUrl = `/api/images${anime ? `?anime=${anime}` : ''}`;
-      break;
-  }
-
-  document.getElementById("apiUrlText").textContent = apiUrl;
-  document.getElementById("apiUrlOutput").style.display = 'block';
-}
-
-// Event listener untuk tombol load quotes berdasarkan anime
-document.getElementById("narutoBtn").addEventListener("click", function() {
-  loadQuotes("Naruto");
-  showApiUrl('quotes', 'Naruto');
-});
-
-document.getElementById("attackOnTitanBtn").addEventListener("click", function() {
-  loadQuotes("Attack on Titan");
-  showApiUrl('quotes', 'Attack on Titan');
-});
-
-// Event listener untuk tombol load stickers berdasarkan anime
-document.getElementById("narutoStickerBtn").addEventListener("click", function() {
-  loadStickers("Naruto");
-  showApiUrl('stickers', 'Naruto');
-});
-
-document.getElementById("attackOnTitanStickerBtn").addEventListener("click", function() {
-  loadStickers("Attack on Titan");
-  showApiUrl('stickers', 'Attack on Titan');
-});
-
-// Event listener untuk tombol load images berdasarkan anime
-document.getElementById("narutoImgBtn").addEventListener("click", function() {
-  loadImages("Naruto");
-  showApiUrl('images', 'Naruto');
-});
-
-document.getElementById("attackOnTitanImgBtn").addEventListener("click", function() {
-  loadImages("Attack on Titan");
-  showApiUrl('images', 'Attack on Titan');
-});
