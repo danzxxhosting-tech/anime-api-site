@@ -1,67 +1,112 @@
+/* Tampilan Umum Body */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
   margin: 0;
   padding: 20px;
 }
 
+/* Header */
 header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
+h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+/* Container Tombol */
 #button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Group Tombol */
 .button-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-.load-btn, .view-api-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
+/* Tombol Umum */
+.load-btn,
+.view-api-btn {
+  padding: 12px 24px;
   font-size: 16px;
+  border: none;
+  margin: 6px 0;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-  display: block;
+  transition: all 0.3s ease-in-out;
+  width: 220px;
 }
 
-.load-btn:hover, .view-api-btn:hover {
-  background-color: #0056b3;
+/* Tombol Load */
+.load-btn {
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3);
 }
 
+.load-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(78, 84, 200, 0.5);
+}
+
+/* Tombol View API */
+.view-api-btn {
+  background: #fff;
+  color: #4e54c8;
+  border: 2px solid #4e54c8;
+}
+
+.view-api-btn:hover {
+  background: #4e54c8;
+  color: #fff;
+  transform: scale(1.03);
+}
+
+/* Output API */
+#apiUrlOutput {
+  margin-top: 30px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#apiUrlText {
+  font-size: 16px;
+  word-wrap: break-word;
+  color: #333;
+}
+
+/* Output konten seperti quote, sticker, dll */
 #output {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .item {
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  width: 200px;
   background-color: #fff;
-}
-
-#apiUrlOutput {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #f1f1f1;
-  border-radius: 8px;
+  margin: 12px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 240px;
   text-align: center;
 }
 
-#apiUrlText {
-  word-wrap: break-word;
-  font-size: 16px;
-  color: #333;
+.item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
