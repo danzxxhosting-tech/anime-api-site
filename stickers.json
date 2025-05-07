@@ -1,12 +1,27 @@
 [
   {
-    "anime": "Demon Slayer",
-    "character": "Nezuko Kamado",
-    "url": "https://example.com/nezuko_sticker.png"
+    "url": "https://i.pinimg.com/originals/e4/58/ea/e458ea6d55b6d844d1f6b223ff9e9dcf.png",
+    "character": "Doraemon",
+    "anime": "Doraemon"
   },
   {
-    "anime": "Attack on Titan",
-    "character": "Levi Ackerman",
-    "url": "https://example.com/levi_sticker.png"
+    "url": "https://i.pinimg.com/originals/c6/ed/5d/c6ed5df9b465e3ff29f2a49d8966a622.png",
+    "character": "Anya Forger",
+    "anime": "Spy x Family"
+  },
+  {
+    "url": "https://i.pinimg.com/originals/20/99/c8/2099c84a55b41b6b7b7234c72d0ce1cd.png",
+    "character": "Naruto Uzumaki",
+    "anime": "Naruto"
+  },
+  {
+    "url": "https://i.pinimg.com/originals/6d/b6/f1/6db6f1bc22985d55c8e0176882eab66a.png",
+    "character": "Spongebob",
+    "anime": "Spongebob Squarepants"
+  },
+  {
+    "url": "https://i.pinimg.com/originals/f6/3e/87/f63e87a1ed5676c9a0e2fc9ccf63ee6a.png",
+    "character": "Shinchan",
+    "anime": "Crayon Shin-chan"
   }
 ]
