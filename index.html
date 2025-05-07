@@ -1,56 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Anime API Site</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <h1>Welcome to Anime API Site</h1>
+    <h1>Anime API Site</h1>
+    <p>Explore quotes, stickers, and anime images with one click!</p>
   </header>
 
   <div id="button-container">
-    <!-- Tombol untuk Quotes -->
+
+    <!-- QUOTES -->
     <div class="button-group">
       <button class="load-btn" onclick="loadQuotes('naruto')">Quotes Naruto</button>
       <button class="view-api-btn" onclick="window.open('https://anime-api-site.vercel.app/api/quotes/naruto', '_blank')">Lihat API</button>
     </div>
+
     <div class="button-group">
-      <button class="load-btn" id="attackOnTitanBtn">Load Attack on Titan Quotes</button>
-      <button class="view-api-btn" id="viewAttackOnTitanApiBtn">View API URL</button>
+      <button class="load-btn" onclick="loadQuotes('onepiece')">Quotes One Piece</button>
+      <button class="view-api-btn" onclick="window.open('https://anime-api-site.vercel.app/api/quotes/onepiece', '_blank')">Lihat API</button>
     </div>
 
-    <!-- Tombol untuk Stickers -->
+    <!-- STICKERS -->
     <div class="button-group">
-      <button class="load-btn" id="narutoStickerBtn">Load Naruto Stickers</button>
-      <button class="view-api-btn" id="viewNarutoStickerApiBtn">View API URL</button>
-    </div>
-    <div class="button-group">
-      <button class="load-btn" id="attackOnTitanStickerBtn">Load Attack on Titan Stickers</button>
-      <button class="view-api-btn" id="viewAttackOnTitanStickerApiBtn">View API URL</button>
+      <button class="load-btn" onclick="loadStickers()">Stickers Anime</button>
+      <button class="view-api-btn" onclick="window.open('https://anime-api-site.vercel.app/api/stickers', '_blank')">Lihat API</button>
     </div>
 
-    <!-- Tombol untuk Images -->
+    <!-- IMAGES -->
     <div class="button-group">
-      <button class="load-btn" id="narutoImgBtn">Load Naruto Images</button>
-      <button class="view-api-btn" id="viewNarutoImgApiBtn">View API URL</button>
+      <button class="load-btn" onclick="loadImages()">Gambar Anime</button>
+      <button class="view-api-btn" onclick="window.open('https://anime-api-site.vercel.app/api/images', '_blank')">Lihat API</button>
     </div>
-    <div class="button-group">
-      <button class="load-btn" id="attackOnTitanImgBtn">Load Attack on Titan Images</button>
-      <button class="view-api-btn" id="viewAttackOnTitanImgApiBtn">View API URL</button>
-    </div>
+
   </div>
 
-  <div id="output"></div>
-
+  <!-- Output URL API -->
   <div id="apiUrlOutput">
-  <p><strong>API URL:</strong></p>
-  <p id="apiUrlText">Klik tombol untuk melihat URL API</p>
-</div>
+    <p><strong>API URL:</strong></p>
+    <p id="apiUrlText">Klik tombol untuk melihat URL API</p>
+  </div>
 
+  <!-- Output Data -->
+  <div id="output"></div>
 
   <script src="script.js"></script>
 </body>
