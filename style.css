@@ -1,135 +1,81 @@
-/* Umum */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
   margin: 0;
-  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  line-height: 1.6;
+}
+
+header {
   text-align: center;
+  padding: 2rem 1rem;
+  background-color: #1f1f1f;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-h1 {
-  color: #333;
+header h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
-/* Container Tombol */
-#button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+header p {
+  color: #aaa;
 }
 
-/* Group Tombol */
+main {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.feature-section {
+  margin-bottom: 3rem;
+}
+
+.feature-section h2 {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
 .button-group {
-  margin-bottom: 55px;
-  text-align: center;
-}
-
-/* Tombol Umum */
-.load-btn,
-.view-api-btn {
-  padding: 12px 24px;
-  font-size: 16px;
-  border: none;
-  margin: 6px 0;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  width: 220px;
-}
-
-/* Tombol Load */
-.load-btn {
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3);
-}
-
-.load-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(78, 84, 200, 0.5);
-}
-
-/* Tombol View API */
-.view-api-btn {
-  background: #fff;
-  color: #4e54c8;
-  border: 2px solid #4e54c8;
-}
-
-.view-api-btn:hover {
-  background: #4e54c8;
-  color: #fff;
-  transform: scale(1.03);
-}
-
-#apiUrlText {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-  word-break: break-all;
-}
-
-#output {
-  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  gap: 0.8rem;
 }
 
-/* Quote box */
-.quote-box {
-  background-color: #fff;
-  border-left: 5px solid #4CAF50;
-  padding: 15px 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: left;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.quote-box p {
-  margin: 5px 0;
-}
-
-/* Sticker box */
-.sticker-box {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  width: 200px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.sticker-img {
-  max-width: 100%;
-  height: auto;
+button {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.2rem;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
-/* Image box */
-.image-box {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  width: 200px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+button:hover {
+  background-color: #3f3f3f;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
-.anime-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+.api-output {
+  margin-top: 2rem;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-left: 4px solid #4caf50;
+  word-break: break-all;
+  border-radius: 5px;
+  font-family: monospace;
+  color: #c8ffc8;
 }
 
-.anime-img:hover {
-  transform: scale(1.05);
-  cursor: zoom-in;
-}
-
-/* Error handling */
-.error {
-  color: red;
-  font-weight: bold;
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #1f1f1f;
 }
