@@ -68,18 +68,18 @@ async function loadImages(anime = "") {
 }
 
 // Fungsi untuk menampilkan URL API
-function showApiUrl(apiType) {
-  let apiUrl = "";
+function showApiUrl(apiType, anime = "") {
+  let apiUrl = "https://anime-api-site.vercel.app/";
 
   switch(apiType) {
     case 'quotes':
-      apiUrl = "/api/quotes";
+      apiUrl = `/api/quotes${anime ? `?anime=${anime}` : ''}`;
       break;
     case 'stickers':
-      apiUrl = "/api/stickers";
+      apiUrl = `/api/stickers${anime ? `?anime=${anime}` : ''}`;
       break;
     case 'images':
-      apiUrl = "/api/images";
+      apiUrl = `/api/images${anime ? `?anime=${anime}` : ''}`;
       break;
   }
 
@@ -90,39 +90,32 @@ function showApiUrl(apiType) {
 // Event listener untuk tombol load quotes berdasarkan anime
 document.getElementById("narutoBtn").addEventListener("click", function() {
   loadQuotes("Naruto");
+  showApiUrl('quotes', 'Naruto');
 });
 
 document.getElementById("attackOnTitanBtn").addEventListener("click", function() {
   loadQuotes("Attack on Titan");
+  showApiUrl('quotes', 'Attack on Titan');
 });
 
 // Event listener untuk tombol load stickers berdasarkan anime
 document.getElementById("narutoStickerBtn").addEventListener("click", function() {
   loadStickers("Naruto");
+  showApiUrl('stickers', 'Naruto');
 });
 
 document.getElementById("attackOnTitanStickerBtn").addEventListener("click", function() {
   loadStickers("Attack on Titan");
+  showApiUrl('stickers', 'Attack on Titan');
 });
 
 // Event listener untuk tombol load images berdasarkan anime
 document.getElementById("narutoImgBtn").addEventListener("click", function() {
   loadImages("Naruto");
+  showApiUrl('images', 'Naruto');
 });
 
 document.getElementById("attackOnTitanImgBtn").addEventListener("click", function() {
   loadImages("Attack on Titan");
-});
-
-// Event listener untuk tombol Get API URL
-document.getElementById("getQuotesApiUrlBtn").addEventListener("click", function() {
-  showApiUrl('quotes');
-});
-
-document.getElementById("getStickersApiUrlBtn").addEventListener("click", function() {
-  showApiUrl('stickers');
-});
-
-document.getElementById("getImagesApiUrlBtn").addEventListener("click", function() {
-  showApiUrl('images');
+  showApiUrl('images', 'Attack on Titan');
 });
