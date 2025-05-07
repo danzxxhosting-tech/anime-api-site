@@ -63,7 +63,7 @@ button:hover {
 
 .api-output {
   margin-top: 2rem;
-  background-color: white;
+  background-color: #1e1e1e;
   padding: 1rem;
   border-left: 4px solid #4caf50;
   word-break: break-all;
