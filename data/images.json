@@ -1,5 +1,26 @@
-
 [
-  "https://example.com/image1.jpg",
-  "https://example.com/image2.jpg"
+  {
+    "title": "Naruto Running",
+    "url": "https://anime-api-site.vercel.app/assets/images/naruto_run.jpg"
+  },
+  {
+    "title": "Luffy Gear 5",
+    "url": "https://anime-api-site.vercel.app/assets/images/luffy_gear5.jpg"
+  },
+  {
+    "title": "Tanjiro Water Style",
+    "url": "https://anime-api-site.vercel.app/assets/images/tanjiro_water.jpg"
+  },
+  {
+    "title": "Eren Titan Form",
+    "url": "https://anime-api-site.vercel.app/assets/images/eren_titan.jpg"
+  },
+  {
+    "title": "Gojo Satoru",
+    "url": "https://anime-api-site.vercel.app/assets/images/gojo_satoru.jpg"
+  },
+  {
+    "title": "Itachi Uchiha",
+    "url": "https://anime-api-site.vercel.app/assets/images/itachi.jpg"
+  }
 ]
