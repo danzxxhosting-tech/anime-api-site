@@ -3,11 +3,13 @@ async function loadQuotes() {
   const data = await res.json();
   const output = document.getElementById("output");
   output.innerHTML = "";
+
   data.forEach((item, i) => {
     const quoteBlock = document.createElement("div");
     quoteBlock.className = "item";
     quoteBlock.innerHTML = `
-      <p>"${item.quote}"<br><span>- ${item.anime}</span></p>
+      <p>"${item.quote}"</p>
+      <p><strong>${item.character}</strong> - <em>${item.anime}</em></p>
       <button onclick="copyToClipboard('${window.location.origin}/quotes.json#${i}')">📋 Copy API URL</button>
     `;
     output.appendChild(quoteBlock);
