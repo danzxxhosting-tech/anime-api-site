@@ -12,7 +12,7 @@ function clearOutput() {
 }
 
 function loadQuotes(anime) {
-  const url = `/api/quotes/${anime}`;
+  const url = `/api/quotes`;
   showApiUrl(window.location.origin + url);
   fetch(url)
     .then(res => res.json())
