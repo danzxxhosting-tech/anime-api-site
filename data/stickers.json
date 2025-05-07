@@ -1,1 +1,13 @@
 
+[
+  {
+    "url": "https://example.com/sticker1.png",
+    "character": "Naruto",
+    "anime": "Naruto"
+  },
+  {
+    "url": "https://example.com/sticker2.png",
+    "character": "Sakura",
+    "anime": "Naruto"
+  }
+]
