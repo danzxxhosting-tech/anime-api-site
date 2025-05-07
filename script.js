@@ -39,12 +39,14 @@ async function loadStickers() {
   const data = await res.json();
   const output = document.getElementById("output");
   output.innerHTML = "";
-  data.forEach((url, i) => {
+
+  data.forEach((item, i) => {
     const stickerBlock = document.createElement("div");
     stickerBlock.className = "item";
     stickerBlock.innerHTML = `
-      <img src="${url}" alt="sticker" class="sticker-img"/>
-      <button onclick="copyToClipboard('${url}')">📋 Copy URL</button>
+      <img src="${item.url}" alt="sticker" class="sticker-img"/>
+      <p><strong>${item.character}</strong> - <em>${item.anime}</em></p>
+      <button onclick="copyToClipboard('${item.url}')">📋 Copy URL</button>
     `;
     output.appendChild(stickerBlock);
   });
