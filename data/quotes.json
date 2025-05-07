@@ -1,12 +1,52 @@
 [
   {
-    "quote": "The only thing we're allowed to do is believe.",
-    "character": "Eren Yeager",
-    "anime": "Attack on Titan"
+    "anime": "Naruto",
+    "character": "Naruto Uzumaki",
+    "quote": "Aku tak akan menarik kembali kata-kataku, itulah jalan ninjaku!"
   },
   {
-    "quote": "I’m not gonna run away, I never go back on my word! That’s my nindo: my ninja way!",
-    "character": "Naruto Uzumaki",
-    "anime": "Naruto"
+    "anime": "Naruto",
+    "character": "Kakashi Hatake",
+    "quote": "Mereka yang melanggar aturan adalah sampah, tapi mereka yang meninggalkan temannya lebih rendah dari sampah."
+  },
+  {
+    "anime": "One Piece",
+    "character": "Monkey D. Luffy",
+    "quote": "Aku akan menjadi Raja Bajak Laut!"
+  },
+  {
+    "anime": "One Piece",
+    "character": "Roronoa Zoro",
+    "quote": "Aku tidak akan pernah kalah lagi!"
+  },
+  {
+    "anime": "Attack on Titan",
+    "character": "Eren Yeager",
+    "quote": "Jika kau ingin menang, maka lawanlah!"
+  },
+  {
+    "anime": "Death Note",
+    "character": "L",
+    "quote": "Keadilan akan menang? Tidak, yang menang adalah kebenaran."
+  },
+  {
+    "anime": "Bleach",
+    "character": "Ichigo Kurosaki",
+    "quote": "Menjadi kuat bukan berarti kau tidak pernah merasa takut."
+  },
+  {
+    "anime": "Tokyo Ghoul",
+    "character": "Kaneki Ken",
+    "quote": "Aku lelah berpura-pura menjadi orang yang tidak terluka."
+  },
+  {
+    "anime": "Demon Slayer",
+    "character": "Tanjiro Kamado",
+    "quote": "Jangan menyerah. Kau bisa menang jika kau tetap bertahan."
+  },
+  {
+    "anime": "Your Name",
+    "character": "Taki Tachibana",
+    "quote": "Aku sedang mencari sesuatu... seseorang."
   }
 ]
