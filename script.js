@@ -1,5 +1,5 @@
 // Fungsi untuk memuat quotes berdasarkan kategori
-async function loadQuotes(anime = "") {
+async function loadQuotes(anime = "https://anime-api-site.vercel.app") {
   const res = await fetch("/api/quotes");
   const data = await res.json();
   const output = document.getElementById("output");
