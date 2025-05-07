@@ -12,7 +12,7 @@ function clearOutput() {
 }
 
 function loadQuotes(anime) {
-  const url = `https://anime-api-site.vercel.app/api/quotes/${anime}`;
+  const url = `/api/quotes/${anime}`;
   showApiUrl(window.location.origin + url);
   fetch(url)
     .then(res => res.json())
@@ -34,7 +34,7 @@ function loadQuotes(anime) {
 }
 
 function loadStickers() {
-  const url = `https://anime-api-site.vercel.app/api/stickers`;
+  const url = `/api/stickers`;
   showApiUrl(window.location.origin + url);
   fetch(url)
     .then(res => res.json())
@@ -56,7 +56,7 @@ function loadStickers() {
 }
 
 function loadImages() {
-  const url = `https://anime-api-site.vercel.app/api/images`;
+  const url = `/api/images`;
   showApiUrl(window.location.origin + url);
   fetch(url)
     .then(res => res.json())
