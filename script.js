@@ -67,6 +67,26 @@ async function loadImages(anime = "") {
   });
 }
 
+// Fungsi untuk menampilkan URL API
+function showApiUrl(apiType) {
+  let apiUrl = "";
+
+  switch(apiType) {
+    case 'quotes':
+      apiUrl = "/api/quotes";
+      break;
+    case 'stickers':
+      apiUrl = "/api/stickers";
+      break;
+    case 'images':
+      apiUrl = "/api/images";
+      break;
+  }
+
+  document.getElementById("apiUrlText").textContent = apiUrl;
+  document.getElementById("apiUrlOutput").style.display = 'block';
+}
+
 // Event listener untuk tombol load quotes berdasarkan anime
 document.getElementById("narutoBtn").addEventListener("click", function() {
   loadQuotes("Naruto");
@@ -92,4 +112,17 @@ document.getElementById("narutoImgBtn").addEventListener("click", function() {
 
 document.getElementById("attackOnTitanImgBtn").addEventListener("click", function() {
   loadImages("Attack on Titan");
+});
+
+// Event listener untuk tombol Get API URL
+document.getElementById("getQuotesApiUrlBtn").addEventListener("click", function() {
+  showApiUrl('quotes');
+});
+
+document.getElementById("getStickersApiUrlBtn").addEventListener("click", function() {
+  showApiUrl('stickers');
+});
+
+document.getElementById("getImagesApiUrlBtn").addEventListener("click", function() {
+  showApiUrl('images');
 });
