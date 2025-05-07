@@ -1,12 +1,42 @@
 [
   {
-    "anime": "Naruto",
-    "character": "Itachi Uchiha",
-    "text": "People live their lives bound by what they accept as correct and true."
+    "quote": "Power comes in response to a need, not a desire.",
+    "character": "Goku",
+    "anime": "Dragon Ball Z"
   },
   {
-    "anime": "One Piece",
-    "character": "Portgas D. Ace",
-    "text": "Thank you for loving me!"
+    "quote": "A lesson without pain is meaningless.",
+    "character": "Edward Elric",
+    "anime": "Fullmetal Alchemist: Brotherhood"
+  },
+  {
+    "quote": "Sometimes, we have to look beyond what we want and do what's best.",
+    "character": "Piccolo",
+    "anime": "Dragon Ball Z"
+  },
+  {
+    "quote": "Hope is like the sun. If you only believe in it when you can see it, you'll never make it through the night.",
+    "character": "Leia Organa",
+    "anime": "Star Wars"
+  },
+  {
+    "quote": "Life is not a game of luck. If you wanna win, work hard.",
+    "character": "Sora",
+    "anime": "No Game No Life"
+  },
+  {
+    "quote": "Fear is not evil. It tells you what your weakness is.",
+    "character": "Gildarts Clive",
+    "anime": "Fairy Tail"
+  },
+  {
+    "quote": "In our society, letting others find out that you're a nice guy is a very risky move.",
+    "character": "Hikigaya Hachiman",
+    "anime": "Oregairu"
+  },
+  {
+    "quote": "The world isn’t perfect. But it’s there for us, doing the best it can… that’s what makes it so damn beautiful.",
+    "character": "Roy Mustang",
+    "anime": "Fullmetal Alchemist: Brotherhood"
   }
 ]
