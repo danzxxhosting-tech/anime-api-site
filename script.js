@@ -1,5 +1,5 @@
 // Base URL dari deploy Vercel atau localhost jika testing lokal
-const baseURL = "https://anime-api-site.vercel.app/";
+const baseURL = "https://anime-api-site.vercel.app/api";
 
 /**
  * Fungsi untuk menampilkan URL API di bawah tombol
