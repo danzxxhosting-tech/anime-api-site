@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anime API Site</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>🎌 Anime API - WhatsApp Bot Tools</h1>
-    <p>Pilih fitur di bawah untuk melihat API-nya</p>
+    <h1>Anime API Site</h1>
+    <p>🎌 API tools untuk quotes anime, stiker, dan gambar.</p>
   </header>
 
   <main>
-    <!-- Quotes Section -->
+
     <section class="feature-section">
       <h2>📜 Quotes Anime</h2>
       <div class="button-group">
         <button onclick="showApi('quotes/naruto')">Quotes Naruto</button>
         <button onclick="showApi('quotes/onepiece')">Quotes One Piece</button>
-        <button onclick="showApi('quotes/aot')">Quotes Attack on Titan</button>
+        <button onclick="showApi('quotes/aot')">Quotes AOT</button>
         <button onclick="showApi('quotes/random')">Quotes Random</button>
       </div>
     </section>
 
-    <!-- Stickers Section -->
     <section class="feature-section">
-      <h2>💠 Stiker Anime</h2>
+      <h2>📦 Stiker Anime</h2>
       <div class="button-group">
-        <button onclick="showApi('stickers/naruto')">Stiker Naruto</button>
-        <button onclick="showApi('stickers/onepiece')">Stiker One Piece</button>
-        <button onclick="showApi('stickers/random')">Stiker Random</button>
+        <button onclick="showApi('stickers/naruto')">Sticker Naruto</button>
+        <button onclick="showApi('stickers/onepiece')">Sticker One Piece</button>
+        <button onclick="showApi('stickers/random')">Sticker Random</button>
       </div>
     </section>
 
-    <!-- Images Section -->
     <section class="feature-section">
       <h2>🖼️ Gambar Anime</h2>
       <div class="button-group">
         <button onclick="showApi('images/naruto')">Gambar Naruto</button>
-        <button onclick="showApi('images/onepiece')">Gambar One Piece</button>
+        <button onclick="showApi('images/aot')">Gambar AOT</button>
         <button onclick="showApi('images/random')">Gambar Random</button>
       </div>
     </section>
 
-    <!-- Output API URL -->
-    <section id="api-display" class="api-output"></section>
+    <div id="api-display" class="api-output">
+      <p>Klik tombol di atas untuk melihat URL API.</p>
+    </div>
+
   </main>
 
   <footer>
-    <p>Made with ❤️ for WhatsApp Bot Creators</p>
+    &copy; 2025 Anime API Site. Dibuat untuk WhatsApp Bot & Developer.
   </footer>
 
   <script src="script.js"></script>
