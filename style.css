@@ -39,6 +39,8 @@ main {
 }
 
 .button-group {
+  justify-content: center;
+  align-items: center;
   display: flex;
   text-align: center;
   flex-wrap: wrap;
