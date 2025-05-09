@@ -1,0 +1,13 @@
+{
+  "name": "anime-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "sharp": "^0.33.1"
+  }
+}
