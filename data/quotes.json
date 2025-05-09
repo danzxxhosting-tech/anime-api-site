@@ -1,52 +1,52 @@
 [
   {
-    "anime": "Naruto",
     "character": "Naruto Uzumaki",
-    "quote": "Aku tak akan menarik kembali kata-kataku, itulah jalan ninjaku!"
-  },
-  {
     "anime": "Naruto",
-    "character": "Kakashi Hatake",
-    "quote": "Mereka yang melanggar aturan adalah sampah, tapi mereka yang meninggalkan temannya lebih rendah dari sampah."
+    "quote": "Aku tidak akan menarik kembali kata-kataku, karena itulah jalan ninjaku!"
   },
   {
-    "anime": "One Piece",
     "character": "Monkey D. Luffy",
+    "anime": "One Piece",
     "quote": "Aku akan menjadi Raja Bajak Laut!"
   },
   {
-    "anime": "One Piece",
-    "character": "Roronoa Zoro",
-    "quote": "Aku tidak akan pernah kalah lagi!"
-  },
-  {
-    "anime": "Attack on Titan",
     "character": "Eren Yeager",
-    "quote": "Jika kau ingin menang, maka lawanlah!"
+    "anime": "Attack on Titan",
+    "quote": "Aku bersumpah akan membinasakan setiap Titan!"
   },
   {
+    "character": "Goku",
+    "anime": "Dragon Ball Z",
+    "quote": "Aku adalah Saiyan yang dibesarkan di Bumi!"
+  },
+  {
+    "character": "Saitama",
+    "anime": "One Punch Man",
+    "quote": "Aku seorang pahlawan untuk bersenang-senang."
+  },
+  {
+    "character": "Levi Ackerman",
+    "anime": "Attack on Titan",
+    "quote": "Berjuang dan bertahan hidup. Itulah pilihan satu-satunya."
+  },
+  {
+    "character": "Light Yagami",
     "anime": "Death Note",
-    "character": "L",
-    "quote": "Keadilan akan menang? Tidak, yang menang adalah kebenaran."
+    "quote": "Aku akan menjadi dewa dari dunia baru."
   },
   {
-    "anime": "Bleach",
-    "character": "Ichigo Kurosaki",
-    "quote": "Menjadi kuat bukan berarti kau tidak pernah merasa takut."
+    "character": "Gojo Satoru",
+    "anime": "Jujutsu Kaisen",
+    "quote": "Kamu kuat karena kamu tidak takut kalah."
   },
   {
-    "anime": "Tokyo Ghoul",
-    "character": "Kaneki Ken",
-    "quote": "Aku lelah berpura-pura menjadi orang yang tidak terluka."
+    "character": "Kakashi Hatake",
+    "anime": "Naruto",
+    "quote": "Mereka yang melanggar aturan dianggap sampah, tapi mereka yang meninggalkan temannya lebih buruk dari sampah."
   },
   {
-    "anime": "Demon Slayer",
-    "character": "Tanjiro Kamado",
-    "quote": "Jangan menyerah. Kau bisa menang jika kau tetap bertahan."
-  },
-  {
-    "anime": "Your Name",
-    "character": "Taki Tachibana",
-    "quote": "Aku sedang mencari sesuatu... seseorang."
+    "character": "Roronoa Zoro",
+    "anime": "One Piece",
+    "quote": "Jika aku menyerah sekarang, aku akan menyesal seumur hidup."
   }
 ]
