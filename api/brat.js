@@ -1,29 +1,39 @@
-const { createCanvas, registerFont } = require('canvas');
+const { createCanvas } = require('canvas');
+const sharp = require('sharp');
 
 module.exports = async (req, res) => {
-  const { text = 'Brat' } = req.query;
+  try {
+    const { text = 'Brat' } = req.query;
 
-  const width = 512;
-  const height = 512;
+    const width = 512;
+    const height = 512;
 
-  const canvas = createCanvas(width, height);
-  const ctx = canvas.getContext('2d');
+    const canvas = createCanvas(width, height);
+    const ctx = canvas.getContext('2d');
 
-  // Optional: font custom
-  // registerFont('/path/to/font.ttf', { family: 'MyFont' });
+    // Background putih
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
 
-  // Background putih polos
-  ctx.fillStyle = '#ffffff'; // white background
-  ctx.fillRect(0, 0, width, height);
+    // Teks tengah
+    ctx.font = 'bold 40px Sans';
+    ctx.fillStyle = '#000000';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, width / 2, height / 2);
 
-  // Teks di tengah
-  ctx.font = 'bold 40px Sans';
-  ctx.fillStyle = '#000000'; // black text
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(text, width / 2, height / 2);
+    const buffer = canvas.toBuffer('image/png');
 
-  // Kirim hasil PNG
-  res.setHeader('Content-Type', 'image/png');
-  canvas.createPNGStream().pipe(res);
+    const webpBuffer = await sharp(buffer)
+      .webp({ quality: 100 })
+      .toBuffer();
+
+    res.setHeader('Content-Type', 'image/webp');
+    res.setHeader('Content-Disposition', 'inline; filename=brat.webp');
+    return res.end(webpBuffer);
+
+  } catch (err) {
+    console.error('Error:', err);
+    res.status(500).json({ error: 'Gagal membuat stiker', detail: err.message });
+  }
 };
