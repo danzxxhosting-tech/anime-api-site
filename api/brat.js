@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
 
   try {
     // Load background image
-    const bgPath = path.join(__dirname, '..', 'assets', 'bg', `bg${bg}.jpg`);
+    const bgPath = path.join(__dirname, '/assets/images/bg1.png, bg2.jpg', 'assets', 'images', `images${images}.jpg`);
     const background = await loadImage(bgPath);
     ctx.drawImage(background, 0, 0, width, height);
 
