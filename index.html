@@ -18,7 +18,7 @@
         </button>
       </div>
       <h1>Anime API Site</h1>
-      <p>🎌 API tools untuk quotes anime, stiker, dan gambar.</p>
+      <p>🎌 API tools lengkap untuk penggemar anime dan developer</p>
       
       <div class="header-icons">
         <div class="icon-circle">
@@ -36,6 +36,7 @@
 
   <main>
     <div class="features-container">
+      <!-- Fitur yang sudah ada -->
       <section class="feature-section">
         <h2><i class="fas fa-quote-left"></i> Quotes Anime</h2>
         <div class="button-group">
@@ -46,35 +47,57 @@
         </div>
       </section>
 
+      <!-- Fitur baru -->
       <section class="feature-section">
-        <h2><i class="fas fa-puzzle-piece"></i> Tebak Pantun</h2>
+        <h2><i class="fas fa-user-ninja"></i> Karakter Anime</h2>
         <div class="button-group">
-          <button onclick="showApi('/api/pantun')">Pantun 1</button>
-          <button onclick="showApi('/api/pantun1')">Pantun 2</button>
-          <button onclick="showApi('/api/pantun2')">Pantun 3</button>
-          <button onclick="showApi('/api/pantun3')">Pantun 4</button>
+          <button onclick="showApi('/characters/popular')">Karakter Populer</button>
+          <button onclick="showApi('/characters/naruto')">Karakter Naruto</button>
+          <button onclick="showApi('/characters/demon-slayer')">Demon Slayer</button>
+          <button onclick="showApi('/characters/random')">Karakter Random</button>
         </div>
       </section>
 
       <section class="feature-section">
-        <h2><i class="fas fa-sticky-note"></i> Stiker Anime</h2>
+        <h2><i class="fas fa-info-circle"></i> Info Anime</h2>
         <div class="button-group">
-          <button onclick="showApi('stickers/naruto')">Sticker Naruto</button>
-          <button onclick="showApi('stickers/onepiece')">Sticker One Piece</button>
-          <button onclick="showApi('stickers/random')">Sticker Random</button>
+          <button onclick="showApi('/anime/info/naruto')">Info Naruto</button>
+          <button onclick="showApi('/anime/info/one-piece')">Info One Piece</button>
+          <button onclick="showApi('/anime/season/current')">Musim Ini</button>
+          <button onclick="showApi('/anime/top')">Top Anime</button>
         </div>
       </section>
 
       <section class="feature-section">
-        <h2><i class="fas fa-image"></i> Gambar Anime</h2>
+        <h2><i class="fas fa-desktop"></i> Wallpaper HD</h2>
         <div class="button-group">
-          <button onclick="showApi('images/naruto')">Gambar Naruto</button>
-          <button onclick="showApi('images/aot')">Gambar AOT</button>
-          <button onclick="showApi('images/random')">Gambar Random</button>
+          <button onclick="showApi('/wallpapers/4k')">Wallpaper 4K</button>
+          <button onclick="showApi('/wallpapers/landscape')">Landscape</button>
+          <button onclick="showApi('/wallpapers/portrait')">Portrait</button>
+          <button onclick="showApi('/wallpapers/random')">Random</button>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <h2><i class="fas fa-search"></i> Pencarian</h2>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Cari anime atau karakter...">
+          <button onclick="searchAnime()"><i class="fas fa-search"></i> Cari</button>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <h2><i class="fas fa-magic"></i> Generator Wallpaper</h2>
+        <div class="button-group">
+          <button onclick="showApi('/generator/quote')">Quote + Gambar</button>
+          <button onclick="showApi('/generator/character')">Karakter Custom</button>
+          <button onclick="showApi('/generator/collage')">Collage</button>
+          <button onclick="showApi('/generator/meme')">Meme Anime</button>
         </div>
       </section>
     </div>
 
+    <!-- Output Area -->
     <div id="api-display" class="api-output">
       <p>Klik tombol di atas untuk melihat URL API</p>
       <div class="api-example">
@@ -89,35 +112,14 @@
       <!-- Diisi dengan preview data dari API -->
     </div>
 
+    <!-- Stats Section -->
     <div class="stats-container">
-      <div class="stat-card">
-        <i class="fas fa-database"></i>
-        <h3>Total Endpoints</h3>
-        <div class="stat-value" id="endpoints-count">15</div>
-      </div>
-      
-      <div class="stat-card">
-        <i class="fas fa-users"></i>
-        <h3>Pengguna Aktif</h3>
-        <div class="stat-value" id="users-count">1.2K</div>
-      </div>
-      
-      <div class="stat-card">
-        <i class="fas fa-bolt"></i>
-        <h3>Response Time</h3>
-        <div class="stat-value" id="response-time">42ms</div>
-      </div>
-      
-      <div class="stat-card">
-        <i class="fas fa-sync-alt"></i>
-        <h3>Uptime</h3>
-        <div class="stat-value" id="uptime">99.8%</div>
-      </div>
+      <!-- ... kode statistik ... -->
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Anime API Site. Dibuat untuk WhatsApp Bot & Developer.
+    &copy; 2025 Anime API Site. Dibuat untuk penggemar anime dan developer.
   </footer>
 
   <script src="script.js"></script>
