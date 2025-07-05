@@ -193,6 +193,52 @@ header p {
   color: white;
 }
 
+/* Navigation Tabs */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 1rem;
+  max-width: 800px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tab {
+  background: var(--card-bg);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  border: var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab:hover {
+  background: rgba(138, 43, 226, 0.2);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 10px rgba(138, 43, 226, 0.3);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -236,12 +282,18 @@ main {
 
 .feature-section h2 {
   font-size: 1.6rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
   gap: 10px;
   color: var(--secondary);
   transition: var(--transition);
+}
+
+.feature-section p {
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
 }
 
 .button-group {
@@ -365,15 +417,6 @@ button:hover {
 .copy-btn:hover, .test-btn:hover {
   background: var(--primary);
   transform: translateY(-2px);
-}
-
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  transition: var(--transition);
 }
 
 .api-example {
@@ -518,6 +561,238 @@ footer {
   opacity: 1;
 }
 
+/* Documentation Styles */
+.docs-container {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: var(--shadow);
+  border: var(--border);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.doc-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.doc-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.endpoint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1.2rem 0;
+}
+
+.method {
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.method.get {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.url {
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  color: var(--text-primary);
+}
+
+.params {
+  margin: 1.2rem 0;
+}
+
+.params h4 {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.params ul {
+  padding-left: 1.5rem;
+}
+
+.params li {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.params code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  color: var(--secondary);
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.2rem 0;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Examples Styles */
+.examples-container {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: var(--shadow);
+  border: var(--border);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.example-card {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+  border-left: 4px solid var(--primary);
+}
+
+.example-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(138, 43, 226, 0.2);
+}
+
+.example-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.example-header i {
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+.example-header h3 {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+
+.example-card p {
+  margin-bottom: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 4rem;
+  padding: 3rem 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-logo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-logo p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.footer-links h4, .footer-contact h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links ul, .footer-contact ul {
+  list-style: none;
+}
+
+.footer-links li, .footer-contact li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links a, .footer-contact li {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-secondary);
+}
+
+.footer-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.status-online {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   h1 {
@@ -546,6 +821,19 @@ footer {
     height: 50px;
     font-size: 1.5rem;
   }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-stats {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -568,6 +856,15 @@ footer {
   .api-url {
     font-size: 1rem;
     padding: 0.8rem;
+  }
+  
+  .tabs-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .tab {
+    justify-content: center;
   }
 }
 
