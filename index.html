@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anime API Site</title>
+  <title>Anime API Hub - API Terlengkap untuk Pengembang dan Penggemar Anime</title>
+  <meta name="description" content="Temukan berbagai API anime untuk quotes, gambar, stiker, karakter, dan informasi anime. Sempurna untuk pengembangan bot WhatsApp, aplikasi, dan website.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎌</text></svg>">
 </head>
 <body>
   <div class="anime-bg"></div>
@@ -17,8 +19,8 @@
           <i class="fas fa-moon"></i>
         </button>
       </div>
-      <h1>Anime API Site</h1>
-      <p>🎌 API tools lengkap untuk penggemar anime dan developer</p>
+      <h1>Anime API Hub</h1>
+      <p>🎌 API terlengkap untuk pengembangan aplikasi, bot, dan website anime</p>
       
       <div class="header-icons">
         <div class="icon-circle">
@@ -35,91 +37,409 @@
   </header>
 
   <main>
-    <div class="features-container">
-      <!-- Fitur yang sudah ada -->
-      <section class="feature-section">
-        <h2><i class="fas fa-quote-left"></i> Quotes Anime</h2>
-        <div class="button-group">
-          <button onclick="showApi('/api/naruto')">Quotes Naruto</button>
-          <button onclick="showApi('/api/onepiece')">Quotes One Piece</button>
-          <button onclick="showApi('/api/aot')">Quotes AOT</button>
-          <button onclick="showApi('/api/quotes')">Quotes Random</button>
-        </div>
-      </section>
-
-      <!-- Fitur baru -->
-      <section class="feature-section">
-        <h2><i class="fas fa-user-ninja"></i> Karakter Anime</h2>
-        <div class="button-group">
-          <button onclick="showApi('/characters/popular')">Karakter Populer</button>
-          <button onclick="showApi('/characters/naruto')">Karakter Naruto</button>
-          <button onclick="showApi('/characters/demon-slayer')">Demon Slayer</button>
-          <button onclick="showApi('/characters/random')">Karakter Random</button>
-        </div>
-      </section>
-
-      <section class="feature-section">
-        <h2><i class="fas fa-info-circle"></i> Info Anime</h2>
-        <div class="button-group">
-          <button onclick="showApi('/anime/info/naruto')">Info Naruto</button>
-          <button onclick="showApi('/anime/info/one-piece')">Info One Piece</button>
-          <button onclick="showApi('/anime/season/current')">Musim Ini</button>
-          <button onclick="showApi('/anime/top')">Top Anime</button>
-        </div>
-      </section>
-
-      <section class="feature-section">
-        <h2><i class="fas fa-desktop"></i> Wallpaper HD</h2>
-        <div class="button-group">
-          <button onclick="showApi('/wallpapers/4k')">Wallpaper 4K</button>
-          <button onclick="showApi('/wallpapers/landscape')">Landscape</button>
-          <button onclick="showApi('/wallpapers/portrait')">Portrait</button>
-          <button onclick="showApi('/wallpapers/random')">Random</button>
-        </div>
-      </section>
-
-      <section class="feature-section">
-        <h2><i class="fas fa-search"></i> Pencarian</h2>
-        <div class="search-container">
-          <input type="text" id="search-input" placeholder="Cari anime atau karakter...">
-          <button onclick="searchAnime()"><i class="fas fa-search"></i> Cari</button>
-        </div>
-      </section>
-
-      <section class="feature-section">
-        <h2><i class="fas fa-magic"></i> Generator Wallpaper</h2>
-        <div class="button-group">
-          <button onclick="showApi('/generator/quote')">Quote + Gambar</button>
-          <button onclick="showApi('/generator/character')">Karakter Custom</button>
-          <button onclick="showApi('/generator/collage')">Collage</button>
-          <button onclick="showApi('/generator/meme')">Meme Anime</button>
-        </div>
-      </section>
+    <!-- Navigation Tabs -->
+    <div class="tabs-container">
+      <button class="tab active" data-tab="features">Fitur API</button>
+      <button class="tab" data-tab="docs">Dokumentasi</button>
+      <button class="tab" data-tab="examples">Contoh Penggunaan</button>
     </div>
 
-    <!-- Output Area -->
-    <div id="api-display" class="api-output">
-      <p>Klik tombol di atas untuk melihat URL API</p>
-      <div class="api-example">
-        <p>Contoh penggunaan:</p>
-        <pre>fetch('https://animeapi.site/api/quotes')
+    <!-- Features Tab -->
+    <div id="features" class="tab-content active">
+      <div class="features-container">
+        <!-- Quotes Anime -->
+        <section class="feature-section">
+          <h2><i class="fas fa-quote-left"></i> Quotes Anime</h2>
+          <p>Kutipan inspiratif dari berbagai karakter anime</p>
+          <div class="button-group">
+            <button onclick="showApi('/api/naruto')"><i class="fas fa-user-ninja"></i> Naruto</button>
+            <button onclick="showApi('/api/onepiece')"><i class="fas fa-skull"></i> One Piece</button>
+            <button onclick="showApi('/api/aot')"><i class="fas fa-tower-observation"></i> AOT</button>
+            <button onclick="showApi('/api/quotes')"><i class="fas fa-random"></i> Random</button>
+          </div>
+        </section>
+
+        <!-- Tebak Pantun -->
+        <section class="feature-section">
+          <h2><i class="fas fa-puzzle-piece"></i> Tebak Pantun</h2>
+          <p>Kumpulan pantun untuk permainan tebak-tebakan</p>
+          <div class="button-group">
+            <button onclick="showApi('/api/pantun')"><i class="fas fa-1"></i> Pantun 1</button>
+            <button onclick="showApi('/api/pantun1')"><i class="fas fa-2"></i> Pantun 2</button>
+            <button onclick="showApi('/api/pantun2')"><i class="fas fa-3"></i> Pantun 3</button>
+            <button onclick="showApi('/api/pantun3')"><i class="fas fa-4"></i> Pantun 4</button>
+          </div>
+        </section>
+
+        <!-- Stiker Anime -->
+        <section class="feature-section">
+          <h2><i class="fas fa-sticky-note"></i> Stiker Anime</h2>
+          <p>Stiker keren untuk WhatsApp, Telegram, dan Discord</p>
+          <div class="button-group">
+            <button onclick="showApi('stickers/naruto')"><i class="fas fa-user-ninja"></i> Naruto</button>
+            <button onclick="showApi('stickers/onepiece')"><i class="fas fa-skull"></i> One Piece</button>
+            <button onclick="showApi('stickers/random')"><i class="fas fa-random"></i> Random</button>
+            <button onclick="showApi('stickers/custom')"><i class="fas fa-pen"></i> Custom</button>
+          </div>
+        </section>
+
+        <!-- Gambar Anime -->
+        <section class="feature-section">
+          <h2><i class="fas fa-image"></i> Gambar Anime</h2>
+          <p>Koleksi gambar anime berkualitas tinggi</p>
+          <div class="button-group">
+            <button onclick="showApi('images/naruto')"><i class="fas fa-user-ninja"></i> Naruto</button>
+            <button onclick="showApi('images/aot')"><i class="fas fa-tower-observation"></i> AOT</button>
+            <button onclick="showApi('images/random')"><i class="fas fa-random"></i> Random</button>
+            <button onclick="showApi('images/hd')"><i class="fas fa-hd"></i> HD</button>
+          </div>
+        </section>
+
+        <!-- Karakter Anime -->
+        <section class="feature-section">
+          <h2><i class="fas fa-user-ninja"></i> Karakter Anime</h2>
+          <p>Detail karakter anime populer</p>
+          <div class="button-group">
+            <button onclick="showApi('/characters/popular')"><i class="fas fa-fire"></i> Populer</button>
+            <button onclick="showApi('/characters/naruto')"><i class="fas fa-user-ninja"></i> Naruto</button>
+            <button onclick="showApi('/characters/demon-slayer')"><i class="fas fa-dragon"></i> Demon Slayer</button>
+            <button onclick="showApi('/characters/random')"><i class="fas fa-random"></i> Random</button>
+          </div>
+        </section>
+
+        <!-- Info Anime -->
+        <section class="feature-section">
+          <h2><i class="fas fa-info-circle"></i> Info Anime</h2>
+          <p>Informasi detail tentang berbagai anime</p>
+          <div class="button-group">
+            <button onclick="showApi('/anime/info/naruto')"><i class="fas fa-user-ninja"></i> Naruto</button>
+            <button onclick="showApi('/anime/info/one-piece')"><i class="fas fa-skull"></i> One Piece</button>
+            <button onclick="showApi('/anime/season/current')"><i class="fas fa-calendar"></i> Musim Ini</button>
+            <button onclick="showApi('/anime/top')"><i class="fas fa-trophy"></i> Top Anime</button>
+          </div>
+        </section>
+
+        <!-- Wallpaper HD -->
+        <section class="feature-section">
+          <h2><i class="fas fa-desktop"></i> Wallpaper HD</h2>
+          <p>Wallpaper anime resolusi tinggi</p>
+          <div class="button-group">
+            <button onclick="showApi('/wallpapers/4k')"><i class="fas fa-expand"></i> 4K</button>
+            <button onclick="showApi('/wallpapers/landscape')"><i class="fas fa-mountain"></i> Landscape</button>
+            <button onclick="showApi('/wallpapers/portrait')"><i class="fas fa-mobile"></i> Portrait</button>
+            <button onclick="showApi('/wallpapers/random')"><i class="fas fa-random"></i> Random</button>
+          </div>
+        </section>
+
+        <!-- Pencarian -->
+        <section class="feature-section">
+          <h2><i class="fas fa-search"></i> Pencarian</h2>
+          <p>Cari anime, karakter, atau informasi</p>
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Cari anime atau karakter...">
+            <button onclick="searchAnime()"><i class="fas fa-search"></i> Cari</button>
+          </div>
+        </section>
+
+        <!-- Generator Wallpaper -->
+        <section class="feature-section">
+          <h2><i class="fas fa-magic"></i> Generator Wallpaper</h2>
+          <p>Buat wallpaper anime custom</p>
+          <div class="button-group">
+            <button onclick="showApi('/generator/quote')"><i class="fas fa-quote-right"></i> Quote + Gambar</button>
+            <button onclick="showApi('/generator/character')"><i class="fas fa-user"></i> Karakter Custom</button>
+            <button onclick="showApi('/generator/collage')"><i class="fas fa-th"></i> Collage</button>
+            <button onclick="showApi('/generator/meme')"><i class="fas fa-laugh"></i> Meme Anime</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Output Area -->
+      <div id="api-display" class="api-output">
+        <p>Klik tombol di atas untuk melihat URL API</p>
+        <div class="api-example">
+          <p>Contoh penggunaan:</p>
+          <pre>fetch('https://animeapi.site/api/quotes')
   .then(response => response.json())
   .then(data => console.log(data));</pre>
+        </div>
+      </div>
+
+      <div id="api-data-preview" class="api-data-output">
+        <!-- Diisi dengan preview data dari API -->
+      </div>
+
+      <!-- Stats Section -->
+      <div class="stats-container">
+        <div class="stat-card">
+          <i class="fas fa-database"></i>
+          <h3>Total Endpoints</h3>
+          <div class="stat-value" id="endpoints-count">42</div>
+        </div>
+        
+        <div class="stat-card">
+          <i class="fas fa-users"></i>
+          <h3>Pengguna Aktif</h3>
+          <div class="stat-value" id="users-count">12.8K</div>
+        </div>
+        
+        <div class="stat-card">
+          <i class="fas fa-bolt"></i>
+          <h3>Response Time</h3>
+          <div class="stat-value" id="response-time">42ms</div>
+        </div>
+        
+        <div class="stat-card">
+          <i class="fas fa-sync-alt"></i>
+          <h3>Uptime</h3>
+          <div class="stat-value" id="uptime">99.8%</div>
+        </div>
       </div>
     </div>
 
-    <div id="api-data-preview" class="api-data-output">
-      <!-- Diisi dengan preview data dari API -->
+    <!-- Documentation Tab -->
+    <div id="docs" class="tab-content">
+      <div class="docs-container">
+        <h2><i class="fas fa-book"></i> Dokumentasi API</h2>
+        
+        <div class="doc-section">
+          <h3><i class="fas fa-key"></i> Autentikasi</h3>
+          <p>Semua endpoint publik dapat diakses tanpa API key. Untuk penggunaan intensif, disarankan menggunakan API key.</p>
+          <div class="code-block">
+            <pre>GET https://animeapi.site/api/endpoint
+Authorization: Bearer YOUR_API_KEY</pre>
+          </div>
+        </div>
+        
+        <div class="doc-section">
+          <h3><i class="fas fa-quote-right"></i> Quotes Anime</h3>
+          <p>Endpoint untuk mendapatkan kutipan anime.</p>
+          <div class="endpoint">
+            <div class="method get">GET</div>
+            <div class="url">/api/quotes</div>
+          </div>
+          <div class="params">
+            <h4>Parameter:</h4>
+            <ul>
+              <li><code>limit</code>: Jumlah hasil (default: 1)</li>
+              <li><code>anime</code>: Filter berdasarkan judul anime</li>
+            </ul>
+          </div>
+          <div class="code-block">
+            <pre>{
+  "status": "success",
+  "data": [
+    {
+      "quote": "Percaya pada dirimu sendiri!",
+      "character": "Naruto Uzumaki",
+      "anime": "Naruto Shippuden"
+    }
+  ]
+}</pre>
+          </div>
+        </div>
+        
+        <div class="doc-section">
+          <h3><i class="fas fa-image"></i> Gambar Anime</h3>
+          <p>Endpoint untuk mendapatkan gambar anime.</p>
+          <div class="endpoint">
+            <div class="method get">GET</div>
+            <div class="url">/images/:category</div>
+          </div>
+          <div class="params">
+            <h4>Kategori yang tersedia:</h4>
+            <ul>
+              <li><code>naruto</code>, <code>aot</code>, <code>random</code></li>
+              <li><code>hd</code>, <code>4k</code>, <code>landscape</code></li>
+            </ul>
+          </div>
+          <div class="code-block">
+            <pre>{
+  "status": "success",
+  "data": {
+    "url": "https://animeapi.site/images/naruto/1.jpg",
+    "source": "Naruto Shippuden",
+    "resolution": "1920x1080"
+  }
+}</pre>
+          </div>
+        </div>
+        
+        <div class="doc-section">
+          <h3><i class="fas fa-code"></i> Contoh Implementasi</h3>
+          <p>Berikut contoh implementasi menggunakan JavaScript:</p>
+          <div class="code-block">
+            <pre>// Mendapatkan quote anime random
+async function getRandomQuote() {
+  try {
+    const response = await fetch('https://animeapi.site/api/quotes');
+    const data = await response.json();
+    
+    if (data.status === 'success') {
+      const quote = data.data[0];
+      console.log(`${quote.quote} - ${quote.character}`);
+    }
+  } catch (error) {
+    console.error('Error fetching quote:', error);
+  }
+}
+
+getRandomQuote();</pre>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Stats Section -->
-    <div class="stats-container">
-      <!-- ... kode statistik ... -->
+    <!-- Examples Tab -->
+    <div id="examples" class="tab-content">
+      <div class="examples-container">
+        <h2><i class="fas fa-laptop-code"></i> Contoh Penggunaan API</h2>
+        
+        <div class="example-card">
+          <div class="example-header">
+            <i class="fab fa-whatsapp"></i>
+            <h3>WhatsApp Bot</h3>
+          </div>
+          <p>Gunakan API untuk membuat bot WhatsApp yang bisa mengirimkan quotes anime, stiker, dan gambar secara otomatis.</p>
+          <div class="code-block">
+            <pre>// Contoh kode untuk bot WhatsApp
+bot.onMessage((message) => {
+  if (message.body === '!quote') {
+    fetch('https://animeapi.site/api/quotes')
+      .then(res => res.json())
+      .then(data => {
+        const quote = data.data[0];
+        bot.sendMessage(message.from, `${quote.quote}\n\n- ${quote.character}`);
+      });
+  }
+});</pre>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-header">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Aplikasi Mobile</h3>
+          </div>
+          <p>Bangun aplikasi mobile yang menampilkan wallpaper anime harian dan informasi karakter.</p>
+          <div class="code-block">
+            <pre>// Contoh kode React Native
+import React, { useEffect, useState } from 'react';
+import { Image, Text, View } from 'react-native';
+
+const WallpaperScreen = () => {
+  const [wallpaper, setWallpaper] = useState(null);
+  
+  useEffect(() => {
+    fetch('https://animeapi.site/wallpapers/random')
+      .then(res => res.json())
+      .then(data => setWallpaper(data.data));
+  }, []);
+  
+  return (
+    <View>
+      {wallpaper && (
+        <Image source={{ uri: wallpaper.url }} style={{ width: '100%', height: 300 }} />
+      )}
+    </View>
+  );
+};</pre>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-header">
+            <i class="fas fa-desktop"></i>
+            <h3>Website Anime</h3>
+          </div>
+          <p>Integrasikan API ke website untuk menampilkan konten anime secara dinamis.</p>
+          <div class="code-block">
+            <pre>// Contoh kode JavaScript untuk website
+async function loadTopCharacters() {
+  const response = await fetch('https://animeapi.site/characters/popular?limit=5');
+  const { data } = await response.json();
+  
+  const container = document.getElementById('characters-container');
+  container.innerHTML = '';
+  
+  data.forEach(character => {
+    const card = `
+      <div class="character-card">
+        <img src="${character.image}" alt="${character.name}">
+        <h4>${character.name}</h4>
+        <p>${character.anime}</p>
+      </div>
+    `;
+    container.innerHTML += card;
+  });
+}</pre>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-header">
+            <i class="fab fa-discord"></i>
+            <h3>Discord Bot</h3>
+          </div>
+          <p>Buat bot Discord yang bisa memberikan trivia anime dan fakta menarik.</p>
+          <div class="code-block">
+            <pre>// Contoh kode Discord.js
+client.on('message', message => {
+  if (message.content === '!trivia') {
+    fetch('https://animeapi.site/trivia/random')
+      .then(res => res.json())
+      .then(data => {
+        const trivia = data.data;
+        const embed = new MessageEmbed()
+          .setTitle('Trivia Anime')
+          .setDescription(trivia.content)
+          .setFooter(`Sumber: ${trivia.source}`);
+        
+        message.channel.send({ embeds: [embed] });
+      });
+  }
+});</pre>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Anime API Site. Dibuat untuk penggemar anime dan developer.
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Anime API Hub</h3>
+        <p>API terlengkap untuk pengembangan aplikasi anime</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Tautan</h4>
+        <ul>
+          <li><a href="#" onclick="switchTab('docs')"><i class="fas fa-book"></i> Dokumentasi</a></li>
+          <li><a href="#" onclick="switchTab('examples')"><i class="fas fa-code"></i> Contoh</a></li>
+          <li><a href="#"><i class="fas fa-file-alt"></i> Syarat Penggunaan</a></li>
+          <li><a href="#"><i class="fas fa-lock"></i> Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h4>Kontak</h4>
+        <ul>
+          <li><i class="fab fa-github"></i> GitHub</li>
+          <li><i class="fab fa-discord"></i> Discord</li>
+          <li><i class="fab fa-telegram"></i> Telegram</li>
+          <li><i class="fas fa-envelope"></i> Email</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2023 Anime API Hub. Dibuat dengan ❤️ untuk komunitas anime.</p>
+      <div class="footer-stats">
+        <span><i class="fas fa-code-branch"></i> v1.4.2</span>
+        <span><i class="fas fa-server"></i> Status: <span class="status-online">Online</span></span>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
