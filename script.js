@@ -1,4 +1,4 @@
-// Toggle theme
+// Toggle tema
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -19,16 +19,30 @@ function updateThemeIcon(theme) {
   const icon = themeToggle.querySelector('i');
   if (theme === 'dark') {
     icon.className = 'fas fa-moon';
+    // Update variabel untuk tema terang
+    document.documentElement.style.setProperty('--primary', '#8a2be2');
+    document.documentElement.style.setProperty('--primary-dark', '#6a1cb9');
+    document.documentElement.style.setProperty('--secondary', '#ff6b6b');
+    document.documentElement.style.setProperty('--dark', '#121212');
+    document.documentElement.style.setProperty('--darker', '#0d0d0d');
+    document.documentElement.style.setProperty('--light', '#f0f0f0');
   } else {
     icon.className = 'fas fa-sun';
+    // Update variabel untuk tema gelap
+    document.documentElement.style.setProperty('--primary', '#6a0dad');
+    document.documentElement.style.setProperty('--primary-dark', '#4b0082');
+    document.documentElement.style.setProperty('--secondary', '#ff5252');
+    document.documentElement.style.setProperty('--dark', '#f5f5f5');
+    document.documentElement.style.setProperty('--darker', '#e0e0e0');
+    document.documentElement.style.setProperty('--light', '#333333');
   }
 }
 
 // Fungsi untuk menampilkan notifikasi salin
-function showCopyNotification() {
+function showCopyNotification(message = 'URL berhasil disalin!') {
   const notification = document.createElement('div');
   notification.className = 'copy-notification';
-  notification.textContent = 'URL berhasil disalin!';
+  notification.textContent = message;
   document.body.appendChild(notification);
   
   setTimeout(() => {
@@ -61,6 +75,9 @@ function showApi(endpoint) {
   .then(response => response.json())
   .then(data => console.log(data));</pre>
     </div>
+    <button class="test-btn" onclick="testEndpoint('${endpoint}')">
+      <i class="fas fa-play"></i> Test Endpoint
+    </button>
   `;
   
   display.classList.add('fade-in');
@@ -79,36 +96,227 @@ function showDataPreview(endpoint) {
   
   // Data dummy berdasarkan endpoint
   let dummyData = {};
+  
+  // Quotes
   if (endpoint.includes('naruto')) {
     dummyData = {
       quote: "Percaya pada dirimu sendiri! Percayalah pada kekuatanmu sendiri!",
       character: "Naruto Uzumaki",
       anime: "Naruto Shippuden"
     };
-  } else if (endpoint.includes('pantun')) {
+  } 
+  else if (endpoint.includes('onepiece')) {
+    dummyData = {
+      quote: "Orang yang tidak bisa bersedia untuk mempertaruhkan nyawanya demi kata-katanya sendiri, tidak pantas disebut sebagai pria!",
+      character: "Roronoa Zoro",
+      anime: "One Piece"
+    };
+  }
+  else if (endpoint.includes('aot')) {
+    dummyData = {
+      quote: "Jika kamu tidak bertarung, kamu tidak bisa menang!",
+      character: "Eren Yeager",
+      anime: "Attack on Titan"
+    };
+  }
+  else if (endpoint.includes('quotes')) {
+    dummyData = {
+      quote: "Terkadang kita harus melakukan apa yang diperlukan, bukan apa yang kita inginkan.",
+      character: "Kakashi Hatake",
+      anime: "Naruto"
+    };
+  }
+  
+  // Pantun
+  else if (endpoint.includes('pantun')) {
     dummyData = {
       pantun: "Pohon kelapa tumbuh menjulang, dibawa perahu si anak dayang",
       jawaban: "kelapa"
     };
-  } else if (endpoint.includes('stickers')) {
+  }
+  else if (endpoint.includes('pantun1')) {
     dummyData = {
-      url: "https://animeapi.site/stickers/naruto/1.png",
-      pack: "Naruto Pack"
+      pantun: "Jalan-jalan ke kota Surabaya, melihat kuda sedang berlari",
+      jawaban: "kuda"
     };
-  } else if (endpoint.includes('images')) {
+  }
+  
+  // Stiker
+  else if (endpoint.includes('stickers')) {
+    if (endpoint.includes('naruto')) {
+      dummyData = {
+        url: "https://animeapi.site/stickers/naruto/1.png",
+        pack: "Naruto Pack Vol.1",
+        character: "Naruto Uzumaki"
+      };
+    }
+    else if (endpoint.includes('onepiece')) {
+      dummyData = {
+        url: "https://animeapi.site/stickers/onepiece/5.png",
+        pack: "One Piece Pack Vol.3",
+        character: "Monkey D. Luffy"
+      };
+    }
+    else {
+      dummyData = {
+        url: "https://animeapi.site/stickers/random/42.png",
+        pack: "Random Pack",
+        character: "Goku"
+      };
+    }
+  }
+  
+  // Gambar
+  else if (endpoint.includes('images')) {
+    if (endpoint.includes('naruto')) {
+      dummyData = {
+        url: "https://animeapi.site/images/naruto/12.jpg",
+        resolution: "1920x1080",
+        character: "Sasuke Uchiha"
+      };
+    }
+    else if (endpoint.includes('aot')) {
+      dummyData = {
+        url: "https://animeapi.site/images/aot/8.jpg",
+        resolution: "3840x2160",
+        character: "Levi Ackerman"
+      };
+    }
+    else {
+      dummyData = {
+        url: "https://animeapi.site/images/random/99.jpg",
+        resolution: "1920x1080",
+        character: "Rimuru Tempest"
+      };
+    }
+  }
+  
+  // Karakter
+  else if (endpoint.includes('characters')) {
+    if (endpoint.includes('naruto')) {
+      dummyData = {
+        name: "Naruto Uzumaki",
+        anime: "Naruto",
+        village: "Konohagakure",
+        abilities: ["Rasengan", "Shadow Clone Jutsu", "Sage Mode"],
+        description: "Seekor rubah ekor sembilan yang menjadi Hokage Ketujuh Konohagakure."
+      };
+    }
+    else if (endpoint.includes('demon-slayer')) {
+      dummyData = {
+        name: "Tanjiro Kamado",
+        anime: "Demon Slayer",
+        organization: "Demon Slayer Corps",
+        abilities: ["Water Breathing", "Hinokami Kagura"],
+        description: "Seorang pembasmi iblis yang berusaha mengubah adik perempuannya kembali menjadi manusia."
+      };
+    }
+    else {
+      dummyData = {
+        name: "Gojo Satoru",
+        anime: "Jujutsu Kaisen",
+        organization: "Tokyo Jujutsu High",
+        abilities: ["Limitless", "Six Eyes", "Domain Expansion"],
+        description: "Penyihir terkuat dan guru di Tokyo Jujutsu High."
+      };
+    }
+  }
+  
+  // Info Anime
+  else if (endpoint.includes('anime/info')) {
+    if (endpoint.includes('naruto')) {
+      dummyData = {
+        title: "Naruto Shippuden",
+        episodes: 500,
+        status: "Completed",
+        genres: ["Action", "Adventure", "Fantasy"],
+        rating: 8.3,
+        synopsis: "Kisah Naruto Uzumaki, ninja muda dari Desa Konoha..."
+      };
+    }
+    else if (endpoint.includes('one-piece')) {
+      dummyData = {
+        title: "One Piece",
+        episodes: 1000+,
+        status: "Ongoing",
+        genres: ["Action", "Adventure", "Comedy"],
+        rating: 8.7,
+        synopsis: "Petualangan Monkey D. Luffy dan kru bajak lautnya mencari harta karun legendaris One Piece..."
+      };
+    }
+  }
+  
+  // Wallpaper
+  else if (endpoint.includes('wallpapers')) {
+    if (endpoint.includes('4k')) {
+      dummyData = {
+        url: "https://animeapi.site/wallpapers/4k/15.jpg",
+        resolution: "3840x2160",
+        anime: "Demon Slayer",
+        characters: ["Tanjiro Kamado", "Nezuko Kamado"]
+      };
+    }
+    else if (endpoint.includes('landscape')) {
+      dummyData = {
+        url: "https://animeapi.site/wallpapers/landscape/8.jpg",
+        resolution: "1920x1080",
+        anime: "Your Name",
+        scene: "Komet Tiamat"
+      };
+    }
+    else {
+      dummyData = {
+        url: "https://animeapi.site/wallpapers/random/33.jpg",
+        resolution: "1920x1080",
+        anime: "Attack on Titan",
+        characters: ["Eren Yeager"]
+      };
+    }
+  }
+  
+  // Generator
+  else if (endpoint.includes('generator')) {
+    if (endpoint.includes('quote')) {
+      dummyData = {
+        image_url: "https://animeapi.site/generated/quote/42.png",
+        quote: "Hidup bukan tentang menemukan dirimu sendiri. Hidup adalah tentang menciptakan dirimu sendiri.",
+        character: "Lelouch Lamperouge",
+        anime: "Code Geass"
+      };
+    }
+    else if (endpoint.includes('meme')) {
+      dummyData = {
+        image_url: "https://animeapi.site/generated/meme/77.png",
+        template: "Distracted Boyfriend",
+        top_text: "Shonen Jump",
+        bottom_text: "Manhwa Webtoon"
+      };
+    }
+    else {
+      dummyData = {
+        image_url: "https://animeapi.site/generated/character/19.png",
+        character: "Rem",
+        anime: "Re:Zero",
+        style: "Watercolor"
+      };
+    }
+  }
+  
+  // Default
+  else {
     dummyData = {
-      url: "https://animeapi.site/images/aot/1.jpg",
-      source: "Attack on Titan"
-    };
-  } else {
-    dummyData = {
-      message: "Data dari API akan muncul di sini"
+      message: "Data dari API akan muncul di sini",
+      endpoint: endpoint,
+      timestamp: new Date().toISOString()
     };
   }
   
   dataPreview.innerHTML = `
-    <h3>Preview Data</h3>
+    <h3>Preview Data <i class="fas fa-chevron-down"></i></h3>
     <div class="data-preview">${JSON.stringify(dummyData, null, 2)}</div>
+    <button class="copy-btn" onclick="copyToClipboard('${JSON.stringify(dummyData, null, 2)}')">
+      <i class="fas fa-copy"></i> Salin Data
+    </button>
   `;
   
   dataPreview.classList.add('show');
@@ -129,8 +337,8 @@ function updateStats() {
   const uptime = document.getElementById('uptime');
   
   // Animasi statistik
-  animateValue(endpointsCount, 0, 15, 1000);
-  animateValue(usersCount, 0, 1200, 1000);
+  animateValue(endpointsCount, 0, 42, 1000);
+  animateValue(usersCount, 0, 12850, 1000);
   animateValue(responseTime, 0, 42, 1000);
   
   // Animasi khusus untuk uptime
@@ -168,7 +376,101 @@ function animateValue(element, start, end, duration) {
   window.requestAnimationFrame(step);
 }
 
+// Fungsi pencarian
+function searchAnime() {
+  const query = document.getElementById('search-input').value.trim();
+  if (query) {
+    // Encode query untuk URL
+    const encodedQuery = encodeURIComponent(query);
+    const endpoint = `/search?q=${encodedQuery}`;
+    showApi(endpoint);
+  } else {
+    showCopyNotification('Silakan masukkan kata kunci pencarian');
+  }
+}
+
+// Fungsi untuk test endpoint
+async function testEndpoint(endpoint) {
+  try {
+    // Menampilkan loading
+    const display = document.getElementById('api-display');
+    const originalContent = display.innerHTML;
+    display.innerHTML = `<div class="loading"><i class="fas fa-spinner fa-spin"></i> Menguji endpoint...</div>`;
+    
+    // Simulasi request API (dalam implementasi nyata, ini akan diganti dengan fetch)
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    // Hasil simulasi
+    const fullUrl = `https://animeapi.site${endpoint.startsWith('/') ? '' : '/'}${endpoint}`;
+    const dummyResponse = {
+      status: "success",
+      message: "Endpoint berhasil diuji!",
+      endpoint: endpoint,
+      response_time: "42ms",
+      data: {
+        sample: "Data contoh dari API"
+      }
+    };
+    
+    const dataPreview = document.getElementById('api-data-preview');
+    dataPreview.innerHTML = `
+      <h3>Hasil Test Endpoint</h3>
+      <div class="data-preview">${JSON.stringify(dummyResponse, null, 2)}</div>
+      <button class="copy-btn" onclick="copyToClipboard('${JSON.stringify(dummyResponse, null, 2)}')">
+        <i class="fas fa-copy"></i> Salin Hasil
+      </button>
+    `;
+    
+    // Kembalikan konten asli
+    display.innerHTML = originalContent;
+    showCopyNotification('Endpoint berhasil diuji!');
+    
+  } catch (error) {
+    showCopyNotification('Error: Gagal menguji endpoint');
+    console.error(error);
+  }
+}
+
+// Fitur live search saat mengetik
+document.getElementById('search-input').addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    searchAnime();
+  }
+});
+
 // Inisialisasi statistik saat halaman dimuat
 document.addEventListener('DOMContentLoaded', () => {
   updateStats();
+  
+  // Set animasi untuk stat-card
+  const statCards = document.querySelectorAll('.stat-card');
+  statCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.2}s`;
+  });
+  
+  // Set animasi untuk feature-section
+  const featureSections = document.querySelectorAll('.feature-section');
+  featureSections.forEach((section, index) => {
+    section.style.animationDelay = `${index * 0.1}s`;
+  });
+});
+
+// Fitur scroll ke atas
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollToTopBtn.id = 'scroll-to-top';
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+document.body.appendChild(scrollToTopBtn);
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    scrollToTopBtn.style.display = 'flex';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
 });
