@@ -12,6 +12,11 @@
   
   <header>
     <div class="header-content">
+      <div class="theme-toggle">
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
       <h1>Anime API Site</h1>
       <p>🎌 API tools untuk quotes anime, stiker, dan gambar.</p>
       
@@ -77,6 +82,36 @@
         <pre>fetch('https://animeapi.site/api/quotes')
   .then(response => response.json())
   .then(data => console.log(data));</pre>
+      </div>
+    </div>
+
+    <div id="api-data-preview" class="api-data-output">
+      <!-- Diisi dengan preview data dari API -->
+    </div>
+
+    <div class="stats-container">
+      <div class="stat-card">
+        <i class="fas fa-database"></i>
+        <h3>Total Endpoints</h3>
+        <div class="stat-value" id="endpoints-count">15</div>
+      </div>
+      
+      <div class="stat-card">
+        <i class="fas fa-users"></i>
+        <h3>Pengguna Aktif</h3>
+        <div class="stat-value" id="users-count">1.2K</div>
+      </div>
+      
+      <div class="stat-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Response Time</h3>
+        <div class="stat-value" id="response-time">42ms</div>
+      </div>
+      
+      <div class="stat-card">
+        <i class="fas fa-sync-alt"></i>
+        <h3>Uptime</h3>
+        <div class="stat-value" id="uptime">99.8%</div>
       </div>
     </div>
   </main>
