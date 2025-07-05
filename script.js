@@ -19,22 +19,8 @@ function updateThemeIcon(theme) {
   const icon = themeToggle.querySelector('i');
   if (theme === 'dark') {
     icon.className = 'fas fa-moon';
-    // Update variabel untuk tema terang
-    document.documentElement.style.setProperty('--primary', '#8a2be2');
-    document.documentElement.style.setProperty('--primary-dark', '#6a1cb9');
-    document.documentElement.style.setProperty('--secondary', '#ff6b6b');
-    document.documentElement.style.setProperty('--dark', '#121212');
-    document.documentElement.style.setProperty('--darker', '#0d0d0d');
-    document.documentElement.style.setProperty('--light', '#f0f0f0');
   } else {
     icon.className = 'fas fa-sun';
-    // Update variabel untuk tema gelap
-    document.documentElement.style.setProperty('--primary', '#6a0dad');
-    document.documentElement.style.setProperty('--primary-dark', '#4b0082');
-    document.documentElement.style.setProperty('--secondary', '#ff5252');
-    document.documentElement.style.setProperty('--dark', '#f5f5f5');
-    document.documentElement.style.setProperty('--darker', '#e0e0e0');
-    document.documentElement.style.setProperty('--light', '#333333');
   }
 }
 
@@ -42,7 +28,7 @@ function updateThemeIcon(theme) {
 function showCopyNotification(message = 'URL berhasil disalin!') {
   const notification = document.createElement('div');
   notification.className = 'copy-notification';
-  notification.textContent = message;
+  notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
   document.body.appendChild(notification);
   
   setTimeout(() => {
@@ -66,18 +52,20 @@ function showApi(endpoint) {
   display.innerHTML = `
     <h3>API Endpoint</h3>
     <div class="api-url">${fullUrl}</div>
-    <button class="copy-btn" onclick="copyToClipboard('${fullUrl}')">
-      <i class="fas fa-copy"></i> Salin URL
-    </button>
+    <div class="api-buttons">
+      <button class="copy-btn" onclick="copyToClipboard('${fullUrl}')">
+        <i class="fas fa-copy"></i> Salin URL
+      </button>
+      <button class="test-btn" onclick="testEndpoint('${endpoint}')">
+        <i class="fas fa-play"></i> Test Endpoint
+      </button>
+    </div>
     <div class="api-example">
       <p>Contoh penggunaan:</p>
       <pre>fetch('${fullUrl}')
   .then(response => response.json())
   .then(data => console.log(data));</pre>
     </div>
-    <button class="test-btn" onclick="testEndpoint('${endpoint}')">
-      <i class="fas fa-play"></i> Test Endpoint
-    </button>
   `;
   
   display.classList.add('fade-in');
@@ -114,7 +102,7 @@ function showDataPreview(endpoint) {
   }
   else if (endpoint.includes('aot')) {
     dummyData = {
-      quote: "Jika kamu tidak bertarung, kamu tidak bisa menang!",
+      quote: "Jika kamu tidak bertaruh, kamu tidak bisa menang!",
       character: "Eren Yeager",
       anime: "Attack on Titan"
     };
@@ -132,12 +120,6 @@ function showDataPreview(endpoint) {
     dummyData = {
       pantun: "Pohon kelapa tumbuh menjulang, dibawa perahu si anak dayang",
       jawaban: "kelapa"
-    };
-  }
-  else if (endpoint.includes('pantun1')) {
-    dummyData = {
-      pantun: "Jalan-jalan ke kota Surabaya, melihat kuda sedang berlari",
-      jawaban: "kuda"
     };
   }
   
@@ -237,7 +219,7 @@ function showDataPreview(endpoint) {
     else if (endpoint.includes('one-piece')) {
       dummyData = {
         title: "One Piece",
-        episodes: 1000+,
+        episodes: 1000,
         status: "Ongoing",
         genres: ["Action", "Adventure", "Comedy"],
         rating: 8.7,
@@ -426,9 +408,32 @@ async function testEndpoint(endpoint) {
     showCopyNotification('Endpoint berhasil diuji!');
     
   } catch (error) {
-    showCopyNotification('Error: Gagal menguji endpoint');
+    const display = document.getElementById('api-display');
+    display.innerHTML = `<div class="loading"><i class="fas fa-exclamation-circle"></i> Error: Gagal menguji endpoint</div>`;
+    setTimeout(() => {
+      display.innerHTML = originalContent;
+    }, 2000);
     console.error(error);
   }
+}
+
+// Fungsi untuk beralih tab
+function switchTab(tabId) {
+  // Sembunyikan semua tab konten
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Tampilkan tab yang dipilih
+  document.getElementById(tabId).classList.add('active');
+  
+  // Update tab navigasi
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.classList.remove('active');
+    if (tab.dataset.tab === tabId) {
+      tab.classList.add('active');
+    }
+  });
 }
 
 // Fitur live search saat mengetik
@@ -440,6 +445,17 @@ document.getElementById('search-input').addEventListener('keyup', function(event
 
 // Inisialisasi statistik saat halaman dimuat
 document.addEventListener('DOMContentLoaded', () => {
+  // Aktifkan tab pertama
+  switchTab('features');
+  
+  // Tambahkan event listener untuk tab
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      switchTab(tab.dataset.tab);
+    });
+  });
+  
+  // Inisialisasi statistik
   updateStats();
   
   // Set animasi untuk stat-card
@@ -453,24 +469,40 @@ document.addEventListener('DOMContentLoaded', () => {
   featureSections.forEach((section, index) => {
     section.style.animationDelay = `${index * 0.1}s`;
   });
+  
+  // Inisialisasi tombol scroll to top
+  initScrollToTop();
 });
 
-// Fitur scroll ke atas
-const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-scrollToTopBtn.id = 'scroll-to-top';
-scrollToTopBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+// Fungsi untuk inisialisasi tombol scroll to top
+function initScrollToTop() {
+  const scrollToTopBtn = document.createElement('button');
+  scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+  scrollToTopBtn.id = 'scroll-to-top';
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-});
-document.body.appendChild(scrollToTopBtn);
+  document.body.appendChild(scrollToTopBtn);
+  
+  // Tampilkan/sembunyikan tombol berdasarkan scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      scrollToTopBtn.style.display = 'flex';
+    } else {
+      scrollToTopBtn.style.display = 'none';
+    }
+  });
+}
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 500) {
-    scrollToTopBtn.style.display = 'flex';
-  } else {
-    scrollToTopBtn.style.display = 'none';
+// Fungsi untuk menampilkan contoh penggunaan
+function showExample(exampleId) {
+  const examples = document.querySelectorAll('.example-card');
+  examples.forEach(example => {
+    example.style.display = 'none';
+  });
+  
+  document.getElementById(exampleId).style.display = 'block';
   }
-});
